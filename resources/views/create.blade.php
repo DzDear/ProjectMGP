@@ -1,10 +1,10 @@
 @extends('layout_home.master')
 
 @section('create')
-<div class="container">
+{{-- <div class="container"> --}}
   <div class="row">
     <div class="col-md-12"> <br />
-      <h3 align="center">เพิ่มข้อมูล</h3> <br />
+      <h3 align="center">เพิ่มข้อมูลระบบหลัก</h3> <br />
       <form method="post" action="{{url('user')}}"> {{csrf_field() }}
         <div class="form-group">
           <label>วันที่</label>
@@ -30,6 +30,6 @@
       </form>
     </div>
   </div>
-</div>
+{{-- </div> --}}
 
 @endsection

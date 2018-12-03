@@ -12,16 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');   // redirect เป็นการบังคับวิ่งเข้าหน้า web
 });
-
-
-Route::get('/login', 'Auth\LoginController@login')->name('login');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/downloadPDF/{id}', 'PetController@downloadPDF');
+Route::group(['middleware' => 'auth'], function()
 
-Route::get('/create', 'HomeController@create')->name('create');
+  {
+    route::resource('PetControl','PetController');
 
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+    route::resource('location','MasterMainController');
+
+    route::resource('temperature','TempController');
+
+    Route::post('import', 'TempController@contactImport')->name('contactImport');
+
+    Route::get('/ExportPDF', 'TempController@ReportPDF');
+
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+    Route::get('/{name}', 'HomeController@index')->name('index');
+
+  });

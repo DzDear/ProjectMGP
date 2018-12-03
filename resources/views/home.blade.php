@@ -1,22 +1,35 @@
 @extends('layout_home.master')
 
 @section('view')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
+
+
+  {{-- <div class="container"> --}}
+  <div class="row">
+  <div class="col-md-12">
+  <h1 class="text-center">Multiple Upload</h1><br>
+  <div class="form-group">
+  <div class="file-loading">
+  <input id="image-file" type="file" name="file" accept="image/*" data-min-file-count="1" multiple>
+  </div>
+  </div>
+  </div>
+  </div>
+  {{-- </div> --}}
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/js/fileinput.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/themes/fa/theme.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+      $("#image-file").fileinput({
+        theme:'fa',
+      })
+  </script>
+
 @endsection

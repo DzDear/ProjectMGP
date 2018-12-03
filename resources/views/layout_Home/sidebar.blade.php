@@ -5,7 +5,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img src="{{ asset('dist/img/user9-160x160.jpg') }}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p>{{ Auth::user()->name }}</p>
@@ -34,20 +34,32 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-          <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> เพิ่มข้อมูลหลัก
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ route('location.index') }}"><i class="fa fa-circle-o"></i> สถานที</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> ปัญหา</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> ช่วงเวลา</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> ผู้รับเรื่อง</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> ผู้รับผิดชอบ</a></li>
+              </ul>
+            </li>
         </ul>
-      </li>
 
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-share"></i> <span>Multilevel</span>
+          <i class="fa fa-share"></i> <span>รายงาน</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+          <li><a href="{{ route('PetControl.index') }}"><i class="fa fa-circle-o"></i> PetControl</a></li>
+          <li><a href="{{ route('temperature.index') }}"><i class="fa fa-circle-o"></i> Import เครื่องอุณหภูมิ</a></li>
           <li>
             <a href="#"><i class="fa fa-circle-o"></i> Level One
               <span class="pull-right-container">
@@ -69,7 +81,6 @@
               </li>
             </ul>
           </li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
         </ul>
       </li>
 

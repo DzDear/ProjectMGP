@@ -15,9 +15,9 @@ class CreateMasterMainsTable extends Migration
     {
         Schema::create('master_mains', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('master_code');
+            $table->string('master_code')->unique();
             $table->string('master_name');
-            $table->integer('master_type');
+            $table->string('master_type');
             $table->timestamps();
         });
     }
