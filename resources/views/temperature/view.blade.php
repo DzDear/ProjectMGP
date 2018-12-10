@@ -10,7 +10,7 @@
 
     <section class="content-header">
       <h1>
-        รายงาน
+        เครื่องอุณหภูมิ
         <small>it all starts here</small>
       </h1>
     </section>

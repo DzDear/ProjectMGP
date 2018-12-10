@@ -32,7 +32,7 @@
 
         <div class="box-body">
           <div align="right">
-            <a href="{{ route('PetControl.create') }}" class="btn btn-success">
+            <a href="{{ route('petControl.create') }}" class="btn btn-success">
             <span class="glyphicon glyphicon-plus"></span> เพิ่มข้อมูล
             </a>
           </div>
@@ -65,7 +65,7 @@
                   @foreach($data as $row)
                     <tr>
                       <td class="text-center">{{ date('d-m-Y',strtotime($row->date)) }}</td>
-                      <td>{{$row->name}}</td>
+                      <td width='40%'>{{$row->name}}</td>
                       {{-- <td class="text-center">
                          <img src="{{ asset('upload-image/'.$row->image_name) }}" alt="" style="max-width:100px">
                       </td> --}}

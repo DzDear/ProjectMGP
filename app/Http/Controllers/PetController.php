@@ -65,7 +65,7 @@ class PetController extends Controller
       ]);
 
       $PetControl->save();
-      return redirect()->route('PetControl.index')->with('success','บันทึกข้อมูลเรียบร้อย');
+      return redirect()->route('petControl.index')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -121,7 +121,7 @@ class PetController extends Controller
       $user->name = $request->get('name');
       $user->file_name = $filename;
       $user->save();
-      return redirect()->Route('PetControl.index')->with('success','อัพเดตข้อมูลเรียบร้อย');
+      return redirect()->Route('petControl.index')->with('success','อัพเดตข้อมูลเรียบร้อย');
     }
 
     /**
@@ -137,7 +137,7 @@ class PetController extends Controller
       Storage::delete($item->file_name);
 
       $item->Delete();
-      return redirect()->Route('PetControl.index')->with('success','ลบข้อมูลเรียบร้อย');
+      return redirect()->Route('petControl.index')->with('success','ลบข้อมูลเรียบร้อย');
     }
 
 }

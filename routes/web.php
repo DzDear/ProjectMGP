@@ -21,7 +21,17 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function()
 
   {
-    route::resource('PetControl','PetController');
+    // route::resource('petControl','PetController');
+
+    Route::get('/Listcapa/view/{type}', 'CapaController@index')->name('listcapa');
+    Route::get('/Listcapa/create/{type}', 'CapaController@create')->name('listcapa.create');
+    Route::get('/Listcapa/edit/{id}/{type}', 'CapaController@edit')->name('listcapa.edit');
+
+    Route::delete('/Listcapa/delete/{id}', 'CapaController@destroy')->name('listcapa.destroy');
+    Route::post('/Listcapa/store', 'CapaController@store')->name('listcapa.store');
+    Route::patch('/Listcapa/update/{id}', 'CapaController@update')->name('listcapa.update');
+
+    // route::resource('Listcapa','CapaController');
 
     route::resource('location','MasterMainController');
 

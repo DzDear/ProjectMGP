@@ -50,9 +50,9 @@ class TempController extends Controller
                           });
 
                           if ($radioname == 2) {
-                            $data = $data->where('temp_log','<=',2);
+                            $data = $data->where('temp_log','<',2);
                           }if ($radioname == 5) {
-                            $data = $data->where('temp_log','>=',5);
+                            $data = $data->where('temp_log','>',5);
                           }
                         $data = $data->get();
 
@@ -167,9 +167,9 @@ class TempController extends Controller
                             });
 
                             if ($radioname == 2) {
-                              $data = $data->where('temp_log','<=',2);
+                              $data = $data->where('temp_log','<',2);
                             }if ($radioname == 5) {
-                              $data = $data->where('temp_log','>=',5);
+                              $data = $data->where('temp_log','>',5);
                             }
 
                             $data = $data->get()
@@ -210,7 +210,7 @@ class TempController extends Controller
 
         $data = $item;
 
-        $view = \View::make('temperature.export' ,compact(['data', 'id','censer' ,'fdate' ,'tdate']));
+        $view = \View::make('temperature.export' ,compact(['data', 'id','censer' ,'fdate' ,'tdate','radioname']));
         $html = $view->render();
 
         $pdf = new PDF();

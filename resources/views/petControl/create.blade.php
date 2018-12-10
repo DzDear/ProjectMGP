@@ -37,7 +37,7 @@
 
             <div class="row">
               <div class="col-md-12"> <br />
-                <form action="{{ route('PetControl.store') }}" method="post" id="formimage" enctype="multipart/form-data">
+                <form action="{{ route('petControl.store') }}" method="post" id="formimage" enctype="multipart/form-data">
                   @csrf
                   <div class="form-group">
                     <label>วันที่</label>
