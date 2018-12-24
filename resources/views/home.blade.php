@@ -1,6 +1,6 @@
 @extends('layout_home.master')
-
-@section('view')
+@section('title','Home')
+@section('content')
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.7/css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css"/>
@@ -8,14 +8,14 @@
 
   {{-- <div class="container"> --}}
   <div class="row">
-  <div class="col-md-12">
-  <h1 class="text-center">Multiple Upload</h1><br>
-  <div class="form-group">
-  <div class="file-loading">
-  <input id="image-file" type="file" name="file" accept="image/*" data-min-file-count="1" multiple>
-  </div>
-  </div>
-  </div>
+    <div class="col-md-12">
+    <h1 class="text-center">Multiple Upload</h1><br>
+      <div class="form-group">
+        <div class="file-loading">
+          <input id="image-file" type="file" name="file" accept="image/*" data-min-file-count="1" multiple>
+        </div>
+      </div>
+    </div>
   </div>
   {{-- </div> --}}
 

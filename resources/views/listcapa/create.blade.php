@@ -1,5 +1,5 @@
 @extends('layout_home.master')
-@section('title','PetControl')
+{{-- @section('title','PetControl') --}}
 @section('PetControl')
 
     <section class="content-header">

@@ -21,8 +21,8 @@
             {{ $censer }}
           @endif
           ประเภท
-          @if ($radioname == 5)
-            มากกว่า 5
+          @if ($radioname == 7)
+            มากกว่า 7
           @elseif ($radioname == 2)
             น้อยกว่า 2
           @else

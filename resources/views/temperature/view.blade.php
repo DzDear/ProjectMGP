@@ -1,5 +1,5 @@
 @extends('layout_home.master')
-@section('title','รายงาน')
+@section('title','เครื่องอุณหภูมิ')
 @section('PetControl')
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -60,7 +60,7 @@
                 <label> All</label>
                 <input type="radio" name="radioname" id="" value="2" {{ ($radioname == 2) ? 'checked' : '' }}>
                 <label> Lower</label>
-                <input type="radio" name="radioname" id="" value="5" {{ ($radioname == 5) ? 'checked' : '' }}>
+                <input type="radio" name="radioname" id="" value="7" {{ ($radioname == 7) ? 'checked' : '' }}>
                 <label> Upper</label>
               </div>
 

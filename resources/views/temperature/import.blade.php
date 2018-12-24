@@ -1,5 +1,5 @@
 @extends('layout_home.master')
-@section('title','รายงาน')
+@section('title','เครื่องอุณหภูมิ')
 @section('PetControl')
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">

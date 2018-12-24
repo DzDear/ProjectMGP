@@ -39,6 +39,8 @@ class TempController extends Controller
         $radioname = $request->get('radioname');
       }
 
+      // dd($fdate,$tdate);
+
       $data = temperature::when(!empty($fdate)  && !empty($tdate), function($q) use ($fdate, $tdate) {
                               return $q->whereBetween('date_log',[$fdate,$tdate]);
                           })
@@ -51,8 +53,8 @@ class TempController extends Controller
 
                           if ($radioname == 2) {
                             $data = $data->where('temp_log','<',2);
-                          }if ($radioname == 5) {
-                            $data = $data->where('temp_log','>',5);
+                          }if ($radioname == 7) {
+                            $data = $data->where('temp_log','>',7);
                           }
                         $data = $data->get();
 
@@ -168,8 +170,8 @@ class TempController extends Controller
 
                             if ($radioname == 2) {
                               $data = $data->where('temp_log','<',2);
-                            }if ($radioname == 5) {
-                              $data = $data->where('temp_log','>',5);
+                            }if ($radioname == 7) {
+                              $data = $data->where('temp_log','>',7);
                             }
 
                             $data = $data->get()
@@ -238,7 +240,10 @@ class TempController extends Controller
 
                 if($value->date != 'Process variable data' && $value->date != 'Date  : ' && $value->date != '')
                 {
-                  $exits = temperature::where('date_log', '=', (!empty($value->date)) ? $value->date->format('d/m/Y') : '')
+
+                  $date  = $value->date->format('Y')-543 .'-'. $value->date->format('m') .'-'. $value->date->format('d');
+
+                  $exits = temperature::where('date_log', '=', (!empty($value->date)) ? $date : '')
                                       ->where('time_log', '=', (!empty($value->time)) ? $value->time->format('H:i:s') : '')
                                       ->exists();
 
@@ -248,7 +253,7 @@ class TempController extends Controller
 
                   if (!$exits)
                   {
-                    if($value->c_1_1 < 2 || $value->c_1_1 > 5){
+                    if($value->c_1_1 < 2 || $value->c_1_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -259,7 +264,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_1_1;
                       $contact->save();
                     }
-                    if($value->c_1_2 < 2 || $value->c_1_2 > 5){
+                    if($value->c_1_2 < 2 || $value->c_1_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -270,7 +275,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_1_2;
                       $contact->save();
                     }
-                    if($value->c_1_3 < 2 || $value->c_1_3 > 5){
+                    if($value->c_1_3 < 2 || $value->c_1_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -281,7 +286,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_1_3;
                       $contact->save();
                     }
-                    if($value->c_2_1 < 2 || $value->c_2_1 > 5){
+                    if($value->c_2_1 < 2 || $value->c_2_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -292,7 +297,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_2_1;
                       $contact->save();
                     }
-                    if($value->c_2_2 < 2 || $value->c_2_2 > 5){
+                    if($value->c_2_2 < 2 || $value->c_2_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -304,7 +309,7 @@ class TempController extends Controller
                       $contact->save();
 
                     }
-                    if($value->c_2_3 < 2 || $value->c_2_3 > 5){
+                    if($value->c_2_3 < 2 || $value->c_2_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -315,7 +320,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_2_3;
                       $contact->save();
                     }
-                    if($value->c_3_1 < 2 || $value->c_3_1 > 5){
+                    if($value->c_3_1 < 2 || $value->c_3_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -326,7 +331,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_3_1;
                       $contact->save();
                     }
-                    if($value->c_3_2 < 2 || $value->c_3_2 > 5){
+                    if($value->c_3_2 < 2 || $value->c_3_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -338,7 +343,7 @@ class TempController extends Controller
                       $contact->save();
 
                     }
-                    if($value->c_3_3 < 2 || $value->c_3_3 > 5){
+                    if($value->c_3_3 < 2 || $value->c_3_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -350,7 +355,7 @@ class TempController extends Controller
                       $contact->save();
                     }
 
-                    if($value->c_4_1 < 2 || $value->c_4_1 > 5){
+                    if($value->c_4_1 < 2 || $value->c_4_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -361,7 +366,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_4_1;
                       $contact->save();
                     }
-                    if($value->c_4_2 < 2 || $value->c_4_2 > 5){
+                    if($value->c_4_2 < 2 || $value->c_4_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -372,7 +377,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_4_2;
                       $contact->save();
                     }
-                    if($value->c_4_3 < 2 || $value->c_4_3 > 5){
+                    if($value->c_4_3 < 2 || $value->c_4_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -383,7 +388,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_4_3;
                       $contact->save();
                     }
-                    if($value->c_5_1 < 2 || $value->c_5_1 > 5){
+                    if($value->c_5_1 < 2 || $value->c_5_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -394,7 +399,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_5_1;
                       $contact->save();
                     }
-                    if($value->c_5_2 < 2 || $value->c_5_2 > 5){
+                    if($value->c_5_2 < 2 || $value->c_5_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -406,7 +411,7 @@ class TempController extends Controller
                       $contact->save();
 
                     }
-                    if($value->c_5_3 < 2 || $value->c_5_3 > 5){
+                    if($value->c_5_3 < 2 || $value->c_5_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -417,7 +422,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_5_3;
                       $contact->save();
                     }
-                    if($value->c_6_1 < 2 || $value->c_6_1 > 5){
+                    if($value->c_6_1 < 2 || $value->c_6_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -428,7 +433,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_6_1;
                       $contact->save();
                     }
-                    if($value->c_6_2 < 2 || $value->c_6_2 > 5){
+                    if($value->c_6_2 < 2 || $value->c_6_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -439,7 +444,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_6_2;
                       $contact->save();
                     }
-                    if($value->c_6_3 < 2 || $value->c_6_3 > 5){
+                    if($value->c_6_3 < 2 || $value->c_6_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -450,7 +455,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_6_3;
                       $contact->save();
                     }
-                    if($value->c_7_1 < 2 || $value->c_7_1 > 5){
+                    if($value->c_7_1 < 2 || $value->c_7_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -461,7 +466,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_7_1;
                       $contact->save();
                     }
-                    if($value->c_7_2 < 2 || $value->c_7_2 > 5){
+                    if($value->c_7_2 < 2 || $value->c_7_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -472,7 +477,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_7_2;
                       $contact->save();
                     }
-                    if($value->c_7_3 < 2 || $value->c_7_3 > 5){
+                    if($value->c_7_3 < 2 || $value->c_7_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -483,7 +488,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_7_3;
                       $contact->save();
                     }
-                    if($value->c_8_1 < 2 || $value->c_8_1 > 5){
+                    if($value->c_8_1 < 2 || $value->c_8_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -494,7 +499,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_8_1;
                       $contact->save();
                     }
-                    if($value->c_8_2 < 2 || $value->c_8_2 > 5){
+                    if($value->c_8_2 < 2 || $value->c_8_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -505,7 +510,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_8_2;
                       $contact->save();
                     }
-                    if($value->c_8_3 < 2 || $value->c_8_3 > 5){
+                    if($value->c_8_3 < 2 || $value->c_8_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -516,7 +521,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_8_3;
                       $contact->save();
                     }
-                    if($value->c_9_1 < 2 || $value->c_9_1 > 5){
+                    if($value->c_9_1 < 2 || $value->c_9_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -527,7 +532,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_9_1;
                       $contact->save();
                     }
-                    if($value->c_9_2 < 2 || $value->c_9_2 > 5){
+                    if($value->c_9_2 < 2 || $value->c_9_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -538,7 +543,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_9_2;
                       $contact->save();
                     }
-                    if($value->c_9_3 < 2 || $value->c_9_3 > 5){
+                    if($value->c_9_3 < 2 || $value->c_9_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -549,7 +554,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_9_3;
                       $contact->save();
                     }
-                    if($value->c_10_1 < 2 || $value->c_10_1 > 5){
+                    if($value->c_10_1 < 2 || $value->c_10_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -560,7 +565,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_10_1;
                       $contact->save();
                     }
-                    if($value->c_10_2 < 2 || $value->c_10_2 > 5){
+                    if($value->c_10_2 < 2 || $value->c_10_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -571,7 +576,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_10_2;
                       $contact->save();
                     }
-                    if($value->c_10_3 < 2 || $value->c_10_3 > 5){
+                    if($value->c_10_3 < 2 || $value->c_10_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -582,7 +587,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_10_3;
                       $contact->save();
                     }
-                    if($value->c_11_1 < 2 || $value->c_11_1 > 5){
+                    if($value->c_11_1 < 2 || $value->c_11_1 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -593,7 +598,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_11_1;
                       $contact->save();
                     }
-                    if($value->c_11_2 < 2 || $value->c_11_2 > 5){
+                    if($value->c_11_2 < 2 || $value->c_11_2 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
@@ -604,7 +609,7 @@ class TempController extends Controller
                       $contact->temp_log = $value->c_11_2;
                       $contact->save();
                     }
-                    if($value->c_11_3 < 2 || $value->c_11_3 > 5){
+                    if($value->c_11_3 < 2 || $value->c_11_3 > 7){
                       $contact = new temperature();
                       $contact->date_log = $date_log;
                       $contact->time_log = $time_log;
